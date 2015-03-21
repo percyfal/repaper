@@ -1,27 +1,17 @@
 # -*- snakemake-mode -*-
-#
 # Snakefile for running analysis of data in Treutlein et al, 2014
-#
-#
-# Reconstructing lineage hierarchies of the distal lung epithelium
-# using single-cell RNA-seq.
-#
-# Treutlein B, Brownfield DG, Wu AR, Neff NF, Mantalas GL, Espinoza
-# FH, Desai TJ, Krasnow MA, Quake SR.
-#
-# Nature. 2014 May 15;509(7500):371-5. doi: 10.1038/nature13173. Epub
-# 2014 Apr 13.
-#
-# PMID: 24739965
-#
 import os
 import csv
 import logging
-from snakemakelib.config import update_sml_config, get_sml_config
+import yaml
+from snakemakelib.config import update_sml_config, get_sml_config, load_sml_config
 from snakemakelib.bio.ngs.tools.sratools import get_metadata_list
 
 SRAPROJECT = "SRP033209"
 workdir: "."
+
+# Load external configuration files
+load_sml_config()
 
 # Rule for creating sample directories and links. Here, sequence data
 # is located two levels up in folder hierarchy, in folder data. I ran
@@ -30,8 +20,12 @@ workdir: "."
 datadir = os.path.abspath("../../data")
 metadata = os.path.join(datadir, "{srp}_info.csv".format(srp=SRAPROJECT))
 metadata_list = get_metadata_list(metadata)
+update_sml_config({'bio.ngs.settings' : {'sampleinfo' : metadata}})
 
-# Utility mapping from samplename to run
+include: "/home/peru/lib/snakemakelib/rules/bio/ngs/tools/sratools.rules"
+include: '/home/peru/lib/snakemakelib/workflows/bio/scrnaseq.workflow'
+
+# Utility mapping from samplename to run; by chance only one run per sample
 sample2run = {row["SampleName"]:row["Run"] for row in metadata_list}
 
 def _get_run(wildcards):
@@ -43,26 +37,5 @@ rule link_fastq:
     input: fastq = _get_run
     output: fastq = os.path.join("{prefix}", "{prefix}_{read}.fastq.gz")
     shell: "ln -s {input.fastq} {output.fastq}"
-    
+
 ruleorder: link_fastq > sratools_fastq_dump
-
-custom_config = {
-    'bio.ngs.settings' : {
-        'db' : {
-            'ref' : os.path.join(os.getenv("BIODATA_HOME", os.curdir), "genomes/Mmusculus/mm10/seq/mm10.fa"),
-        },
-        'annotation' : {
-            'transcript_annot_gtf' : os.path.join(os.getenv("BIODATA_HOME", os.curdir), "genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf"),
-        },
-    },
-    'bio.ngs.align.star' : {
-        'star_index' : {
-            'options' : "--genomeSAindexNbases 14 --genomeSAsparseD 2", # due to memory limitations
-            },
-    },
-}
-
-update_sml_config(custom_config)
-
-include: "/home/peru/lib/snakemakelib/rules/bio/ngs/tools/sratools.rules"
-include: '/home/peru/lib/snakemakelib/workflows/bio/scrnaseq.workflow'
