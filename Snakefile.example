@@ -1,4 +1,4 @@
-# -*- snakemake-mode -*-
+# -*- snakemake -*-
 import os
 from snakemakelib.config import update_sml_config, get_sml_config, load_sml_config, sml_base_path
 from snakemakelib.bio.ngs.tools.sratools import get_metadata_list

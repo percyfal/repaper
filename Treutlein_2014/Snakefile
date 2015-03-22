@@ -1,4 +1,4 @@
-# -*- snakemake-mode -*-
+# -*- snakemake -*-
 # Snakefile for running analysis of data in Treutlein et al, 2014
 import os
 from snakemakelib.config import update_sml_config, get_sml_config, load_sml_config, sml_base_path
