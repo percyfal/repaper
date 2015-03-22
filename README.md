@@ -6,7 +6,8 @@ interest in which data is available at the [Sequence Read Archive](http://www.nc
 
 ## Requirements ##
 
-- [snakemake](https://bitbucket.org/johanneskoester/snakemake/wiki/Home)- [snakemakelib](https://github.com/percyfal/snakemakelib)
+- [snakemake](https://bitbucket.org/johanneskoester/snakemake/wiki/Home)
+- [snakemakelib](https://github.com/percyfal/snakemakelib)
 - [sra toolkit](http://www.ncbi.nlm.nih.gov/Traces/sra/?view=software)
 - bioinformatics software such as GATK, picard, bowtie, star - see [snakemakelib](https://github.com/percyfal/snakemakelib) for configuration instructions
 
