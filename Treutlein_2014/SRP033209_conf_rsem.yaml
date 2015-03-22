@@ -1,10 +1,7 @@
-workflows.bio.scrnaseq:
-  quantification:
-    - rsem
 bio.ngs.settings:
   aligner: star
   sample_organization: sample
-  samplecolumnname: SampleName
+  sample_column_name: SampleName
   db:
     # FIXME: support for environment variables
     ref: /datad/biodata/genomes/Mmusculus/mm10/seq/mm10.fa

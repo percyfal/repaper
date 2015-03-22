@@ -1,0 +1,23 @@
+# Example configuration file
+bio.ngs.settings:
+  aligner: star
+  sample_organization: sample
+  sample_column_name: SampleName
+  db:
+    ref: $BIODATA_HOME/genomes/Mmusculus/mm10/seq/mm10.fa
+  annotation:
+    transcript_annot_gtf: $BIODATA_HOME/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
+bio.ngs.align.star:
+  star_index:
+    # Set star index generation options
+    options: --genomeSAindexNbases 14 --genomeSAsparseD 2
+# Set logging configuration
+logging:
+  version: 1
+  # Required!
+  disable_existing_loggers: False
+  loggers:
+    snakemakelib:
+      # Set default logging snakemakelib logging level to DEBUG
+      level: DEBUG
+
