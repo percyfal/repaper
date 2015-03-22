@@ -1,7 +1,7 @@
 # -*- snakemake-mode -*-
 # Snakefile for running analysis of data in Treutlein et al, 2014
 import os
-from snakemakelib.config import update_sml_config, get_sml_config, load_sml_config, sml_path
+from snakemakelib.config import update_sml_config, get_sml_config, load_sml_config, sml_base_path
 from snakemakelib.bio.ngs.tools.sratools import get_metadata_list
 
 SRAPROJECT = "SRP033209"
@@ -19,8 +19,8 @@ metadata = os.path.join(datadir, "{srp}_info.csv".format(srp=SRAPROJECT))
 metadata_list = get_metadata_list(metadata)
 update_sml_config({'bio.ngs.settings' : {'sampleinfo' : metadata}})
 
-include: os.path.join(sml_path, "rules/bio/ngs/tools/sratools.rules")
-include: os.path.join(sml_path, "workflows/bio/scrnaseq.workflow")
+include: os.path.join(sml_base_path(), "rules/bio/ngs/tools/sratools.rules")
+include: os.path.join(sml_base_path(), "workflows/bio/scrnaseq.workflow")
 
 # Utility mapping from samplename to run; by chance only one run per sample
 sample2run = {row["SampleName"]:row["Run"] for row in metadata_list}
