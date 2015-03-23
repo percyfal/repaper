@@ -1,7 +1,7 @@
 # -*- snakemake -*-
 import os
 from snakemakelib.config import update_sml_config, get_sml_config, load_sml_config, sml_base_path
-from snakemakelib.bio.ngs.tools.sratools import get_metadata_list
+from snakemakelib.bio.ngs.tools.sratools import register_metadata
 # Set SRAPROJECT
 SRAPROJECT = "SRP######"
 workdir: "."
@@ -13,25 +13,10 @@ load_sml_config()
 # is located two levels up in folder hierarchy, in folder data
 datadir = os.path.abspath("../../data")
 metadata = os.path.join(datadir, "{srp}_info.csv".format(srp=SRAPROJECT))
-metadata_list = get_metadata_list(metadata)
-update_sml_config({'bio.ngs.settings' : {'sampleinfo' : metadata}})
+metadata_list = register_metadata(metadata)
 
 # Required!
 include: os.path.join(sml_base_path(), "rules/bio/ngs/tools/sratools.rules")
 # Import workflow of choice
 # include: os.path.join(sml_base_path(), "workflows/bio/")
 
-# Utility mapping from samplename to run; by chance only one run per sample
-sample2run = {row["SampleName"]:row["Run"] for row in metadata_list}
-
-def _get_run(wildcards):
-    return os.path.join(datadir, sample2run[wildcards.prefix] + "_" + wildcards.read + ".fastq.gz")
-    
-rule link_fastq:
-    """Link fastq files from input data directory to analysis directory.
-    """
-    input: fastq = _get_run
-    output: fastq = os.path.join("{prefix}", "{prefix}_{read}.fastq.gz")
-    shell: "ln -s {input.fastq} {output.fastq}"
-
-ruleorder: link_fastq > sratools_fastq_dump

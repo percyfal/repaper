@@ -4,9 +4,9 @@ bio.ngs.settings:
   sample_column_name: SampleName
   db:
     # FIXME: support for environment variables
-    ref: /datad/biodata/genomes/Mmusculus/mm10/seq/mm10.fa
+    ref: $BIODATA_HOME/genomes/Mmusculus/mm10/seq/mm10.fa
   annotation:
-    transcript_annot_gtf: /datad/biodata/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
+    transcript_annot_gtf: $BIODATA_HOME/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
 bio.ngs.align.star:
   star_index:
     # Sparse mode due to memory limitations (24GB RAM)
