@@ -11,3 +11,5 @@ bio.ngs.align.star:
   star_index:
     # Sparse mode due to memory limitations (24GB RAM)
     options: --genomeSAindexNbases 14 --genomeSAsparseD 2
+  align:
+    options: --genomeLoad LoadAndKeep

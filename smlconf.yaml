@@ -2,8 +2,6 @@
 bio.ngs.settings:
   aligner: star
   sample_organization: sample
-  # Could also be Run if no renaming from SRA run to SampleName
-  # desired
   sample_column_name: SampleName
   # Restrict workflow to two samples, for testing. Sample names must
   # agree with those in SRP project
@@ -18,6 +16,9 @@ bio.ngs.align.star:
   star_index:
     # Set star index generation options
     options: --genomeSAindexNbases 14 --genomeSAsparseD 2
+  align:
+    # If many samples, keep index in memory
+    options: --genomeLoad LoadAndKeep
 # Set logging configuration
 logging:
   version: 1
