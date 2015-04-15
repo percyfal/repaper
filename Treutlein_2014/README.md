@@ -1,3 +1,4 @@
+## About ##
 
 The Snakefile and configuration files provide a workflow to regenerate the results of the following study:
 
@@ -12,3 +13,20 @@ The Snakefile and configuration files provide a workflow to regenerate the resul
 
 	PMID: 24739965
 
+## Running ##
+
+Issue
+
+	snakemake data/SRP033209_info.csv
+
+to get the project information. Then run
+
+	snakemake scrnaseq_all
+
+to run the entire pipeline.
+
+
+
+## Rulegraph ##
+
+[alt text](rulegraph.png Rulegraph)

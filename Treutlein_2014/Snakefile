@@ -2,7 +2,6 @@
 # Snakefile for running analysis of data in Treutlein et al, 2014
 import os
 from snakemakelib.config import update_sml_config, get_sml_config, load_sml_config, sml_base_path
-#from snakemakelib.bio.ngs.tools.sratools import get_metadata_list
 from snakemakelib.bio.ngs.tools.sratools import register_metadata
 
 SRAPROJECT = "SRP033209"
@@ -12,10 +11,8 @@ workdir: "."
 load_sml_config()
 
 # Rule for creating sample directories and links. Here, sequence data
-# is located two levels up in folder hierarchy, in folder data. I ran
-# analyses in Treutlein/analysis/date, with sequencing data residing
-# in Treutlein/data.
-datadir = os.path.abspath("../../data")
+# is located two levels up in folder hierarchy, in folder data
+datadir = os.path.abspath("data")
 metadata = os.path.join(datadir, "{srp}_info.csv".format(srp=SRAPROJECT))
 register_metadata(metadata)
 

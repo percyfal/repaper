@@ -1,15 +1,17 @@
 bio.ngs.settings:
   aligner: star
-  sample_organization: sample
+  sample_organization: sample_run_sra
   sample_column_name: SampleName
+  sample_column_map:
+    SampleName: SM
+    Run: PU
   db:
-    # FIXME: support for environment variables
     ref: $BIODATA_HOME/genomes/Mmusculus/mm10/seq/mm10.fa
   annotation:
     transcript_annot_gtf: $BIODATA_HOME/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
 bio.ngs.align.star:
   star_index:
-    # Sparse mode due to memory limitations (24GB RAM)
-    options: --genomeSAindexNbases 14 --genomeSAsparseD 2
+    # Sparse mode due to memory limitations (e.g. 24GB RAM); uncomment if necessary
+    # options: --genomeSAindexNbases 14 --genomeSAsparseD 2
   align:
     options: --genomeLoad LoadAndKeep
