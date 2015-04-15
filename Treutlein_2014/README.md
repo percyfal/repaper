@@ -29,4 +29,4 @@ to run the entire pipeline.
 
 ## Rulegraph ##
 
-[alt text](rulegraph.png Rulegraph)
+![Rulegraph](./rulegraph.png)
