@@ -18,11 +18,9 @@ Issue
 
 to get the project information. Then run
 
-	snakemake scrnaseq_all
+	snakemake atac_seq_all
 
 to run the entire pipeline.
-
-
 
 ## Rulegraph ##
 
