@@ -24,4 +24,4 @@ to run the entire pipeline.
 
 ## Rulegraph ##
 
-
+![rulegraph](rulegraph.png)
