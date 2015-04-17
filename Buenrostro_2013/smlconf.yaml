@@ -1,3 +1,11 @@
+settings:
+  # Add rules whose output you don't want to save
+  temp_rules: 
+    - sratools_prefetch
+    - sratools_fastq_dump
+    - picard_add_or_replace_read_groups
+    - picard_sort_bam
+    - bowtie_align
 bio.ngs.settings:
   sample_organization: sample_run_sra
   sample_column_name: SampleName
