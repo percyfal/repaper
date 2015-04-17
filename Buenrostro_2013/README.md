@@ -20,7 +20,9 @@ to get the project information. Then run
 
 	snakemake atac_seq_all
 
-to run the entire pipeline.
+to run the entire pipeline. To try it out on sample GSM1155964 run
+
+	snakemake atac_seq_all --config samples=["GSM1155964"]
 
 ## Rulegraph ##
 

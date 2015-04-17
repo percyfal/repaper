@@ -23,9 +23,10 @@ to get the project information. Then run
 
 	snakemake scrnaseq_all
 
-to run the entire pipeline.
+to run the entire pipeline. To try it out on samples GSM1271862 and
+GSM1271863 run
 
-
+	snakemake scrnaseq_all --config samples=["GSM1271862","GSM1271863"]
 
 ## Rulegraph ##
 
