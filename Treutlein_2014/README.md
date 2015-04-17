@@ -35,7 +35,7 @@ GSM1271863 run
 
 	snakemake scrnaseq_all --config samples=["GSM1271862","GSM1271863"]
 
-For more general hints, see the main [README](../README)
+For more general hints, see the main [README](../README.md)
 
 ## Rulegraph ##
 

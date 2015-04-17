@@ -30,7 +30,7 @@ to run the entire pipeline. To try it out on sample GSM1155964 run
 
 	snakemake atacseq_all --config samples=["GSM1155964"]
 
-For more general hints, see the main [README](../README)
+For more general hints, see the main [README](../README.md)
 
 ## Rulegraph ##
 
