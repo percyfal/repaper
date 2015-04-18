@@ -1,3 +1,7 @@
+settings:
+  # Add rules whose output you don't want to save
+  temp_rules:
+    - star_align
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra

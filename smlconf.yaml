@@ -1,4 +1,8 @@
 # Example configuration file
+settings:
+  # Add rules whose output you don't want to save
+  # temp_rules:
+  #  - star_align
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
@@ -15,9 +19,6 @@ bio.ngs.settings:
   annotation:
     transcript_annot_gtf: $BIODATA_HOME/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
 bio.ngs.align.star:
-  star_index:
-    # Set star index generation options
-    options: --genomeSAindexNbases 14 --genomeSAsparseD 2
   align:
     # If many samples, keep index in memory
     options: --genomeLoad LoadAndKeep
