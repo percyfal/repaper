@@ -21,7 +21,7 @@ bio.ngs.settings:
     - SAMPLE2
   # The following assumes biological data from cloudbiolinux is
   # installed; see https://github.com/chapmanb/cloudbiolinux, section
-  # "Biological data" Set BIODATA_HOME to point to bidata root
+  # "Biological data". Set BIODATA_HOME to point to biodata root
   # directory.
   db:
     ref: $BIODATA_HOME/genomes/Mmusculus/mm10/seq/mm10.fa
