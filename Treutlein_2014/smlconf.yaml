@@ -1,7 +1,6 @@
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
-  sample_column_name: SampleName
   sample_column_map:
     SampleName: SM
     Run: PU

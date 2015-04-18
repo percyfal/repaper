@@ -2,7 +2,9 @@
 bio.ngs.settings:
   aligner: star
   sample_organization: sample
-  sample_column_name: SampleName
+  sample_column_map:
+    SampleName: SM
+    Run: PU
   # Restrict workflow to two samples, for testing. Sample names must
   # agree with those in SRP project
   samples: 

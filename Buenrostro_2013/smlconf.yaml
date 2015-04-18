@@ -1,14 +1,16 @@
 settings:
   # Add rules whose output you don't want to save
   temp_rules: 
-    - sratools_prefetch
-    - sratools_fastq_dump
     - picard_add_or_replace_read_groups
     - picard_sort_bam
-    - bowtie_align
+  #   - sratools_prefetch
+  #   - sratools_fastq_dump
+  #   - bowtie_align
 bio.ngs.settings:
   sample_organization: sample_run_sra
-  sample_column_name: SampleName
   sample_column_map:
     SampleName: SM
     Run: PU
+  db:
+    ref: $BIODATA_HOME/genomes/Hsapiens/hg19/seq/hg19.fa
+  read_length: 50
