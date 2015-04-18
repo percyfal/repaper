@@ -1,6 +1,9 @@
 settings:
-  # Add rules whose output you don't want to save
+  # Add rules whose output will be treated as temporary and removed
+  # once depending rules have completed
   temp_rules:
+    - sratools_prefetch
+    - sratools_fastq_dump
     - star_align
 bio.ngs.settings:
   aligner: star

@@ -1,8 +1,10 @@
 # Example configuration file
 settings:
-  # Add rules whose output you don't want to save
-  # temp_rules:
-  #  - star_align
+  # Add rules whose output will be treated as temporary and removed
+  # once depending rules have completed
+  temp_rules:
+    - sratools_prefetch
+    - sratools_fastq_dump
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
