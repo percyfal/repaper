@@ -8,6 +8,9 @@ settings:
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
+  # Sample column map maps column names in SRP project file to
+  # ReadGroup tags; see
+  # https://samtools.github.io/hts-specs/SAMv1.pdf, @RG tag
   sample_column_map:
     SampleName: SM
     Run: PU
