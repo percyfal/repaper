@@ -38,6 +38,6 @@ logging:
   disable_existing_loggers: False
   loggers:
     snakemakelib:
-      # Set default logging snakemakelib logging level to INFO
+      # Set default snakemakelib logging level to INFO
       level: INFO
 

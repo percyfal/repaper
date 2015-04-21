@@ -2,16 +2,26 @@ settings:
   # Add rules whose output will be treated as temporary and removed
   # once depending rules have completed
   temp_rules: 
-    - picard_add_or_replace_read_groups
+    - picard_mark_duplicates
     - picard_sort_bam
-  #   - sratools_prefetch
-  #   - sratools_fastq_dump
-  #   - bowtie_align
+    - bowtie_align
+bio.ngs.enrichment.zinba:
+  zinba_common:
+    # Buenrostro p1219
+    extension: 120
+  run.zinba:
+    winSize: 300
+    offset: 75
+    # Paper states posterior probability > 0.8 - equivalent to
+    # peakconfidence? That parameter has been deprecated and is now
+    # set to 1 - threshold
+    threshold: 0.2
 bio.ngs.settings:
   sample_organization: sample_run_sra
   sample_column_map:
     SampleName: SM
     Run: PU
   db:
-    ref: $BIODATA_HOME/genomes/Hsapiens/hg19/seq/hg19.fa
+    ref: $BIODATA_HOME/genomes/Hsapiens/hg19/seq/hg19.autosome.fa
   read_length: 50
+  threads: 16
