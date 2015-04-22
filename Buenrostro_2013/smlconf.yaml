@@ -4,6 +4,7 @@ settings:
   temp_rules: 
     - picard_mark_duplicates
     - picard_sort_bam
+    - picard_merge_sam
     - bowtie_align
 bio.ngs.enrichment.zinba:
   zinba_common:
