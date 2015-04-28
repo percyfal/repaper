@@ -1,3 +1,7 @@
+workflows.bio.atac_seq:
+  peakcallers:
+    - macs2
+    - dfilter
 settings:
   # Add rules whose output will be treated as temporary and removed
   # once depending rules have completed
@@ -5,7 +9,11 @@ settings:
     - picard_mark_duplicates
     - picard_sort_bam
     - picard_merge_sam
-    - bowtie_align
+#    - bowtie_align
+    - cutadapt_cut_threeprime
+    - cutadapt_cut_fiveprime
+bio.ngs.align.bowtie:
+  threads: 7
 bio.ngs.enrichment.zinba:
   zinba_common:
     # Buenrostro p1219
