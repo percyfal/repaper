@@ -39,4 +39,4 @@ For more general hints, see the main [README](../README.md)
 
 ## Rulegraph ##
 
-![Rulegraph](./rulegraph.png)
+![Rulegraph](./scrnaseq_all.png)
