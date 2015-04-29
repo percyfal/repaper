@@ -1,10 +1,13 @@
 # Example configuration file
 settings:
+  # Add rules whose output will be treated as protected and never
+  # removed. 
+  protected_rules: 
+    - sratools_fastq_dump
   # Add rules whose output will be treated as temporary and removed
   # once depending rules have completed
   temp_rules:
     - sratools_prefetch
-    - sratools_fastq_dump
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
