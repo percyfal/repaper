@@ -1,14 +1,14 @@
 # -*- snakemake -*-
 # Snakefile for running analysis of data in Treutlein et al, 2014
 import os
-from snakemakelib.config import update_snakemake_config, load_sml_config, sml_base_path
+from snakemakelib.config import load_sml_config, sml_base_path
 from snakemakelib.bio.ngs.tools.sratools import register_metadata
 
 SRAPROJECT = "SRP033209"
 workdir: "."
 
 # Load external configuration files
-config = load_sml_config()
+config = load_sml_config(config)
 
 # Rule for creating sample directories and links. Here, sequence data
 # is located one level up in folder hierarchy, in folder data

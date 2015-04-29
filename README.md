@@ -53,3 +53,20 @@ You can also visualize the entire workflow or the rulegraph:
 	snakemake rule --dag | dot | display
 	snakemake rule --rulegraph | dot | display
 
+### Working on a cluster ###
+
+If you have access to a cluster that runs the queue manager, you can
+submit jobs using DRMAA. For instance, the following command
+
+	snakemake rule --drmaa " -t 12:00:00 -p core -n {threads} ..." -j 20
+
+will submit at most 20 simultaneous core jobs, each of which runs a
+number of threads governed by the parameter `{threads}`. Snakemakelib
+allows you to fine-tune the value of `{threads}` for rules that have
+multi-threading capacity.
+
+Some analysis folders have an sbatch.sh file for use with the SLURM
+queue manager. Submitting is done as follows
+
+	sbatch [options] sbatch.sh
+

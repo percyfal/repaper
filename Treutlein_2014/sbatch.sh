@@ -4,5 +4,5 @@
 #SBATCH -t 24:00:00
 #SBATCH -J Treutlein
 
-snakemake -j 16 scrnaseq_all
+snakemake -j 16 scrnaseq_all --rerun-incomplete
 
