@@ -55,8 +55,8 @@ You can also visualize the entire workflow or the rulegraph:
 
 ### Working on a cluster ###
 
-If you have access to a cluster that runs the queue manager, you can
-submit jobs using DRMAA. For instance, the following command
+If you have access to a cluster that runs the queue manager SLURM, you
+can submit jobs using DRMAA. For instance, the following command
 
 	snakemake rule --drmaa " -t 12:00:00 -p core -n {threads} ..." -j 20
 
