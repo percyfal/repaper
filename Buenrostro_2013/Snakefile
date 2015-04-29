@@ -17,4 +17,5 @@ metadata = os.path.join(datadir, "{srp}_info.csv".format(srp=SRAPROJECT))
 register_metadata(metadata)
 
 include: os.path.join(sml_base_path(), "rules/bio/ngs/tools/sratools.rules")
+include: os.path.join(sml_base_path(), "workflows/bio/ATAC-seq.workflow")
 

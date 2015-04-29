@@ -1,7 +1,18 @@
+settings:
+  # Add rules whose output will be treated as temporary and removed
+  # once depending rules have completed. See scrnaseq.workflow for
+  # default temp rules
+  temp_rules:
+    - sratools_fastq_dump
+  temp_rules_default:
+    - sratools_prefetch
+  # Add rules whose output will be treated as protected and never
+  # removed. 
+  protected_rules: 
+    - sratools_fastq_dump
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
-  sample_column_name: SampleName
   sample_column_map:
     SampleName: SM
     Run: PU

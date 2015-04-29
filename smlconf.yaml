@@ -1,21 +1,36 @@
 # Example configuration file
+settings:
+  # Add rules whose output will be treated as protected and never
+  # removed. 
+  protected_rules: 
+    - sratools_fastq_dump
+  # Add rules whose output will be treated as temporary and removed
+  # once depending rules have completed
+  temp_rules:
+    - sratools_prefetch
 bio.ngs.settings:
   aligner: star
-  sample_organization: sample
-  sample_column_name: SampleName
+  sample_organization: sample_run_sra
+  # Sample column map maps column names in SRP project file to
+  # ReadGroup tags; see
+  # https://samtools.github.io/hts-specs/SAMv1.pdf, @RG tag
+  sample_column_map:
+    SampleName: SM
+    Run: PU
   # Restrict workflow to two samples, for testing. Sample names must
   # agree with those in SRP project
   samples: 
     - SAMPLE1
     - SAMPLE2
+  # The following assumes biological data from cloudbiolinux is
+  # installed; see https://github.com/chapmanb/cloudbiolinux, section
+  # "Biological data". Set BIODATA_HOME to point to biodata root
+  # directory.
   db:
     ref: $BIODATA_HOME/genomes/Mmusculus/mm10/seq/mm10.fa
   annotation:
     transcript_annot_gtf: $BIODATA_HOME/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
 bio.ngs.align.star:
-  star_index:
-    # Set star index generation options
-    options: --genomeSAindexNbases 14 --genomeSAsparseD 2
   align:
     # If many samples, keep index in memory
     options: --genomeLoad LoadAndKeep
@@ -26,6 +41,6 @@ logging:
   disable_existing_loggers: False
   loggers:
     snakemakelib:
-      # Set default logging snakemakelib logging level to INFO
+      # Set default snakemakelib logging level to INFO
       level: INFO
 

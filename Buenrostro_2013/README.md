@@ -16,14 +16,22 @@ Issue
 
 	snakemake data/SRP024293_info.csv
 
-to get the project information. Then run
+to get the project information.  First run
 
-	snakemake scrnaseq_all
+	snakemake -n -p atacseq_all
 
-to run the entire pipeline.
+to list the commands that will be run.
 
+Then run
 
+	snakemake atacseq_all
+
+to run the entire pipeline. To try it out on sample GSM1155964 run
+
+	snakemake atacseq_all --config samples=["GSM1155964"]
+
+For more general hints, see the main [README](../README.md)
 
 ## Rulegraph ##
 
-
+![rulegraph](atacseq_all.png)
