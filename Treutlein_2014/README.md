@@ -19,13 +19,23 @@ Issue
 
 	snakemake data/SRP033209_info.csv
 
-to get the project information. Then run
+to get the project information. First run
+
+	snakemake -n -p scrnaseq_all
+
+to list the commands that will be run. There are 201 samples, so it
+will take some time for snakemake to calculate all rule depenencies.
+
+Then run
 
 	snakemake scrnaseq_all
 
-to run the entire pipeline.
+to run the entire pipeline. To try it out on samples GSM1271862 and
+GSM1271863 run
 
+	snakemake scrnaseq_all --config samples=["GSM1271862","GSM1271863"]
 
+For more general hints, see the main [README](../README.md)
 
 ## Rulegraph ##
 
