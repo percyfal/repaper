@@ -7,11 +7,13 @@ bio.ngs.settings:
     Run: PU
   db:
     ref: $BIODATA_HOME/genomes/Mmusculus/mm10/seq/mm10.fa
-  annotation:
-    transcript_annot_gtf: $BIODATA_HOME/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
+    extra_ref:
+      - ERCC_spikes.gb
+
 bio.ngs.align.star:
-  star_index:
-    # Sparse mode due to memory limitations (e.g. 24GB RAM); uncomment if necessary
-    # options: --genomeSAindexNbases 14 --genomeSAsparseD 2
+  index: mm10_ERCC/Genome
+  # star_index:
+  #   # Sparse mode due to memory limitations (e.g. 24GB RAM); uncomment if necessary
+  #   # options: --genomeSAindexNbases 14 --genomeSAsparseD 2
   align:
     options: --genomeLoad LoadAndKeep
