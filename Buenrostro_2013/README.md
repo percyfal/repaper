@@ -34,4 +34,4 @@ For more general hints, see the main [README](../README.md)
 
 ## Rulegraph ##
 
-![rulegraph](atacseq_all.png)
+![rulegraph](atacseq_all_rulegraph.png)

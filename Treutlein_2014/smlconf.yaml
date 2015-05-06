@@ -6,8 +6,8 @@ settings:
     - sratools_prefetch
   # Add rules whose output will be treated as protected and never
   # removed. 
-  protected_rules: 
-    - sratools_fastq_dump
+  # protected_rules:
+  #   - sratools_fastq_dump
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
