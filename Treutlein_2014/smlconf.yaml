@@ -1,3 +1,7 @@
+workflows.bio.scrnaseq:
+  quantification:
+    - rsem
+    - rpkmforgenes
 settings:
   # Add rules whose output will be treated as temporary and removed
   # once depending rules have completed. See scrnaseq.workflow for
