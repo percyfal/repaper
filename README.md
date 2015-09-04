@@ -9,7 +9,8 @@ interest in which data is available at the [Sequence Read Archive](http://www.nc
 - [snakemake](https://bitbucket.org/johanneskoester/snakemake/wiki/Home)
 - [snakemakelib](https://github.com/percyfal/snakemakelib)
 - [sra toolkit](http://www.ncbi.nlm.nih.gov/Traces/sra/?view=software)
-- bioinformatics software such as GATK, picard, bowtie, star - see [snakemakelib](https://github.com/percyfal/snakemakelib) for configuration instructions
+- bioinformatics software such as GATK, picard, bowtie, star - see [snakemakelib](http://snakemakelib.readthedocs.org) for configuration instructions
+- reference data, preferably installed according to the conventions of [cloudbiolinux](http://cloudbiolinux.org)
 
 Make sure to have enough diskspace. Also, once the SRA toolkit is
 installed, double-check the default download location for SRA data
@@ -20,10 +21,14 @@ disk location in order to make it visible to snakemakelib.
 
 ## Setup ##
 
-The top directory contains template files for snakemake and
-configuration. Copy to an analysis directory of choice and edit where
-necessary. The application will read the configuration file
-*smlconf.yaml* by default if present.
+Subdirectories are named after study using the convention
+"author_year". Provided you have reference data installed following
+the conventions cloudbiolinux of you should be able to run the
+workflows out of the box.
+
+For running other SRA projects, the top directory contains template
+files for snakemake and configuration. Copy to an analysis directory
+of choice and edit where necessary.
 
 ## Running ##
 
@@ -64,6 +69,10 @@ will submit at most 20 simultaneous core jobs, each of which runs a
 number of threads governed by the parameter `{threads}`. Snakemakelib
 allows you to fine-tune the value of `{threads}` for rules that have
 multi-threading capacity.
+
+Alternatively, you can fine-tune the requirements of rules via a cluster configuration file (e.g. *cluster.yaml*) and submit using the following command
+
+	snakemake rule --cluster-config cluster.yaml -j 20 " -t {cluster.time} -p {cluster.partition} -A {cluster.account} -n {cluster.n}"
 
 Some analysis folders have an sbatch.sh file for use with the SLURM
 queue manager. Submitting is done as follows
