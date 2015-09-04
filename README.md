@@ -10,7 +10,7 @@ interest in which data is available at the [Sequence Read Archive](http://www.nc
 - [snakemakelib](https://github.com/percyfal/snakemakelib)
 - [sra toolkit](http://www.ncbi.nlm.nih.gov/Traces/sra/?view=software)
 - bioinformatics software such as GATK, picard, bowtie, star - see [snakemakelib](http://snakemakelib.readthedocs.org) for configuration instructions
-- reference data, preferably installed according to the conventions of [cloudbiolinux](http://cloudbiolinux.org)
+- reference data, preferably installed according to the conventions of [cloudbiolinux](https://github.com/chapmanb/cloudbiolinux#biological-data)
 
 Make sure to have enough diskspace. Also, once the SRA toolkit is
 installed, double-check the default download location for SRA data
@@ -23,8 +23,8 @@ disk location in order to make it visible to snakemakelib.
 
 Subdirectories are named after study using the convention
 "author_year". Provided you have reference data installed following
-the conventions cloudbiolinux of you should be able to run the
-workflows out of the box.
+the conventions of cloudbiolinux you should be able to run the
+workflows out of the box. If not, you need to set the locations of reference files manually.
 
 For running other SRA projects, the top directory contains template
 files for snakemake and configuration. Copy to an analysis directory
