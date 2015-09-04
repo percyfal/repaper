@@ -24,7 +24,9 @@ disk location in order to make it visible to snakemakelib.
 Subdirectories are named after study using the convention
 "author_year". Provided you have reference data installed following
 the conventions of cloudbiolinux you should be able to run the
-workflows out of the box. If not, you need to set the locations of reference files manually.
+workflows out of the box. If not, you need to set the locations of
+reference files manually. Some projects require extra external
+datasets; see the relevant README for more information.
 
 For running other SRA projects, the top directory contains template
 files for snakemake and configuration. Copy to an analysis directory

@@ -8,6 +8,12 @@ settings:
   # removed. 
   protected_rules: 
     - sratools_fastq_dump
+
+workflows.bio.scrnaseq:
+  db:
+    # Set to True to run MULTo
+    do_multo: False
+    
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
@@ -15,7 +21,11 @@ bio.ngs.settings:
     SampleName: SM
     Run: PU
   db:
+    # This is a minimum requirement
     ref: $BIODATA_HOME/genomes/Mmusculus/mm10/seq/mm10.fa
+    # Add extra references here, such as gfp fasta files. Setting
+    # ERCC_spikes.fa will automatically download ERCC spikein
+    # references
     extra_ref:
       - ERCC_spikes.fa
 
@@ -26,3 +36,16 @@ bio.ngs.align.star:
   #   # options: --genomeSAindexNbases 14 --genomeSAsparseD 2
   align:
     options: --genomeLoad LoadAndKeep
+
+bio.ngs.rnaseq.rpkmforgenes:
+  unique: MULTo/mm10_20-255
+
+logging:
+  version: 1
+  # Required!
+  disable_existing_loggers: False
+  loggers:
+    snakemakelib:
+      # Set default logging snakemakelib logging level to INFO
+      level: INFO
+

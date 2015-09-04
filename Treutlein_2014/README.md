@@ -13,6 +13,21 @@ The Snakefile and configuration files provide a workflow to regenerate the resul
 
 	PMID: 24739965
 
+## Requirements ##
+
+Running the commands as is may run into a few stumbling blocks. For
+instance, the quantification script
+[rpkmforgenes.py](http://sandberg.cmb.ki.se/media/data/rnaseq/instructions-rpkmforgenes.html)
+requires mappability estimates from the tool
+[MULTo](http://sandberg.cmb.ki.se/multo/). To automate the generation
+of MULTo files, set the following configuration:
+
+    workflows.bio.scrnaseq:
+	  db:
+	    do_multo: True
+
+
+
 ## Running ##
 
 Issue
