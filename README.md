@@ -72,9 +72,11 @@ number of threads governed by the parameter `{threads}`. Snakemakelib
 allows you to fine-tune the value of `{threads}` for rules that have
 multi-threading capacity.
 
-Alternatively, you can fine-tune the requirements of rules via a cluster configuration file (e.g. *cluster.yaml*) and submit using the following command
+Alternatively, you can fine-tune the requirements of rules via a
+cluster configuration file (e.g. *cluster.yaml*) and submit using the
+following command
 
-	snakemake rule --cluster-config cluster.yaml -j 20 " -t {cluster.time} -p {cluster.partition} -A {cluster.account} -n {cluster.n}"
+	snakemake rule --cluster-config cluster.yaml -j 20 --cluster " sbatch -t {cluster.time} -p {cluster.partition} -A {cluster.account} -n {cluster.n}"
 
 Some analysis folders have an sbatch.sh file for use with the SLURM
 queue manager. Submitting is done as follows
