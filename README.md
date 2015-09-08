@@ -35,13 +35,29 @@ of choice and edit where necessary.
 ## Running ##
 
 **Important**: before running you obviously need the SRA project
-identifier!
+identifier! See the respective project readmes for more information.
 
-Issue
+## Reference data organization ##
 
-	snakemake
+As noted above, repaper assumes reference data is organized according
+to
+[cloudbiolinux](https://github.com/chapmanb/cloudbiolinux#biological-data)
+conventions. Basically this means that references are stored according
+to ``BIODATA_HOME/genomes/ORGANISM/BUILD/seq/BUILD.fa``, and
+application specific data, such as indices, are stored in sibling
+folders to ``seq``. For instance, ``bwa`` indices are stored in
+``BIODATA_HOME/genomes/ORGANISM/BUILD/bwa/``. If you have reference
+data organized this way, by setting the environment variable
+``$BIODATA_HOME`` and loading the snakemakelib module
+``snakemakelib.bio.ngs.db.cloudbiolinux``, you only have to supply the
+reference in the configuration setup. Missing indices will be even
+generated on the fly should you only have the reference but still
+choose to use the cloudbiolinux setup.
 
-to run the default rule.
+If you don't have reference data organized as described above you need
+to set metadata manually (indices, annotations, etc). Hopefully, it
+will be evident which configuration keys need to be set as rules fail
+due to missing dependencies.
 
 ## Hints ##
 

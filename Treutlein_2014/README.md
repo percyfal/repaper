@@ -26,6 +26,11 @@ of MULTo files, set the following configuration:
 	  db:
 	    do_multo: True
 
+If you already have MULTo data, make sure the following configuration
+is correct:
+
+	bio.ngs.rnaseq.rpkmforgenes:
+	  unique: MULTo/mm10_20-255  # path to location of MULTo files
 
 
 ## Running ##

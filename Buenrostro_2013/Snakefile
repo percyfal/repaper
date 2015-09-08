@@ -3,6 +3,11 @@
 import os
 from snakemakelib.config import load_sml_config, SNAKEMAKELIB_PATH
 from snakemakelib.bio.ngs.tools.sratools import register_metadata
+# If reference sequences are not or you don't want them to be
+# organized following cloudbiolinux conventions, comment the following
+# line. If so, you will need to set the exact locations for various
+# reference files; which ones will hopefully become evident as the rules fail
+import snakemakelib.bio.ngs.db.cloudbiolinux
 
 SRAPROJECT = "SRP024293"
 workdir: "."
