@@ -30,9 +30,10 @@ of MULTo files, set the following configuration:
 
 ## Running ##
 
-Issue
+Issue (you can also set the email in the
+[configuration file](smlconf.yaml)):
 
-	snakemake data/SRP033209_info.csv
+	USER_EMAIL="yourmail@address.com" snakemake data/SRP033209_info.csv
 
 to get the project information. First run
 

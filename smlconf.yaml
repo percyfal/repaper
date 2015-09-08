@@ -8,6 +8,7 @@ settings:
   # once depending rules have completed
   temp_rules:
     - sratools_prefetch
+
 bio.ngs.settings:
   aligner: star
   sample_organization: sample_run_sra
@@ -30,10 +31,16 @@ bio.ngs.settings:
     ref: $BIODATA_HOME/genomes/Mmusculus/mm10/seq/mm10.fa
   annotation:
     transcript_annot_gtf: $BIODATA_HOME/genomes/Mmusculus/mm10/rnaseq/ref-transcripts.gtf
+
+# Set email here in order to download sra data
+# bio.ngs.tools.sratools:
+#   email: john.doe@foo.com
+
 bio.ngs.align.star:
   align:
     # If many samples, keep index in memory
     options: --genomeLoad LoadAndKeep
+
 # Set logging configuration
 logging:
   version: 1

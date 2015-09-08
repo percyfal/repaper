@@ -24,9 +24,10 @@ See also
 
 ## Running ##
 
-Issue
+Issue (you can also set the email in the
+[configuration file](smlconf.yaml)):
 
-	snakemake data/SRP024293_info.csv
+	USER_EMAIL="yourmail@address.com" snakemake data/SRP024293_info.csv
 
 to get the project information.  First run
 

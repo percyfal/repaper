@@ -3,6 +3,7 @@ workflows.bio.atac_seq:
     - macs2
     - dfilter
     - zinba
+
 settings:
   # Add rules whose output will be treated as temporary and removed
   # once depending rules have completed
@@ -14,8 +15,14 @@ settings:
     - cutadapt_cut_fiveprime
   protected_rules:
     - bowtie_align
+
+# Set email here in order to download sra data
+# bio.ngs.tools.sratools:
+#   email: john.doe@foo.com
+
 bio.ngs.align.bowtie:
   threads: 7
+
 bio.ngs.enrichment.zinba:
   zinba_common:
     # Buenrostro p1219
@@ -28,6 +35,7 @@ bio.ngs.enrichment.zinba:
     # peakconfidence? That parameter has been deprecated and is now
     # set to 1 - threshold
     threshold: 0.2
+
 bio.ngs.settings:
   sample_organization: sample_run_sra
   sample_column_map:

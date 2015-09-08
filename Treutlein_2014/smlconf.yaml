@@ -2,6 +2,10 @@ workflows.bio.scrnaseq:
   quantification:
     - rsem
     - rpkmforgenes
+  db:
+    # Set to True to run MULTo
+    do_multo: False
+    
 settings:
   # Add rules whose output will be treated as temporary and removed
   # once depending rules have completed. See scrnaseq.workflow for
@@ -12,11 +16,6 @@ settings:
   # removed. 
   # protected_rules:
   #   - sratools_fastq_dump
-
-workflows.bio.scrnaseq:
-  db:
-    # Set to True to run MULTo
-    do_multo: False
 
 bio.ngs.settings:
   aligner: star
@@ -32,6 +31,10 @@ bio.ngs.settings:
     # references
     extra_ref:
       - ERCC_spikes.fa
+
+# Set email here in order to download sra data
+# bio.ngs.tools.sratools:
+#   email: john.doe@foo.com
 
 bio.ngs.align.star:
   index: mm10_ERCC/Genome
