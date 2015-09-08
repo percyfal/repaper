@@ -20,6 +20,7 @@ bio.ngs.enrichment.zinba:
   zinba_common:
     # Buenrostro p1219
     extension: 120
+    numProc: 16
   run.zinba:
     winSize: 300
     offset: 75

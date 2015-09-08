@@ -6,10 +6,11 @@ interest in which data is available at the [Sequence Read Archive](http://www.nc
 
 ## Requirements ##
 
-- [snakemake](https://bitbucket.org/johanneskoester/snakemake/wiki/Home)
-- [snakemakelib](https://github.com/percyfal/snakemakelib)
+- [snakemake](https://bitbucket.org/johanneskoester/snakemake/wiki/Home) >= 3.4
+- [snakemakelib](https://github.com/percyfal/snakemakelib) >= 0.1a11
 - [sra toolkit](http://www.ncbi.nlm.nih.gov/Traces/sra/?view=software)
-- bioinformatics software such as GATK, picard, bowtie, star - see [snakemakelib](https://github.com/percyfal/snakemakelib) for configuration instructions
+- bioinformatics software such as GATK, picard, bowtie, star - see [snakemakelib](http://snakemakelib.readthedocs.org) for configuration instructions
+- reference data, preferably installed according to the conventions of [cloudbiolinux](https://github.com/chapmanb/cloudbiolinux#biological-data)
 
 Make sure to have enough diskspace. Also, once the SRA toolkit is
 installed, double-check the default download location for SRA data
@@ -20,10 +21,16 @@ disk location in order to make it visible to snakemakelib.
 
 ## Setup ##
 
-The top directory contains template files for snakemake and
-configuration. Copy to an analysis directory of choice and edit where
-necessary. The application will read the configuration file
-*smlconf.yaml* by default if present.
+Subdirectories are named after study using the convention
+"author_year". Provided you have reference data installed following
+the conventions of cloudbiolinux you should be able to run the
+workflows out of the box. If not, you need to set the locations of
+reference files manually. Some projects require extra external
+datasets; see the relevant README for more information.
+
+For running other SRA projects, the top directory contains template
+files for snakemake and configuration. Copy to an analysis directory
+of choice and edit where necessary.
 
 ## Running ##
 
@@ -64,6 +71,12 @@ will submit at most 20 simultaneous core jobs, each of which runs a
 number of threads governed by the parameter `{threads}`. Snakemakelib
 allows you to fine-tune the value of `{threads}` for rules that have
 multi-threading capacity.
+
+Alternatively, you can fine-tune the requirements of rules via a
+cluster configuration file (e.g. *cluster.yaml*) and submit using the
+following command
+
+	snakemake rule --cluster-config cluster.yaml -j 20 --cluster " sbatch -t {cluster.time} -p {cluster.partition} -A {cluster.account} -n {cluster.n}"
 
 Some analysis folders have an sbatch.sh file for use with the SLURM
 queue manager. Submitting is done as follows
