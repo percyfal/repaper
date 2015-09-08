@@ -6,8 +6,8 @@ interest in which data is available at the [Sequence Read Archive](http://www.nc
 
 ## Requirements ##
 
-- [snakemake](https://bitbucket.org/johanneskoester/snakemake/wiki/Home)
-- [snakemakelib](https://github.com/percyfal/snakemakelib)
+- [snakemake](https://bitbucket.org/johanneskoester/snakemake/wiki/Home) >= 3.4
+- [snakemakelib](https://github.com/percyfal/snakemakelib) >= 0.1a11
 - [sra toolkit](http://www.ncbi.nlm.nih.gov/Traces/sra/?view=software)
 - bioinformatics software such as GATK, picard, bowtie, star - see [snakemakelib](http://snakemakelib.readthedocs.org) for configuration instructions
 - reference data, preferably installed according to the conventions of [cloudbiolinux](https://github.com/chapmanb/cloudbiolinux#biological-data)
